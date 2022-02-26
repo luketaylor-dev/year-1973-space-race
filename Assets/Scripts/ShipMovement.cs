@@ -18,7 +18,7 @@ public class ShipMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         renderers = GetComponentsInChildren<Renderer>();
     }
- 
+
     bool CheckRenderers()
     {
         foreach(var renderer in renderers)
@@ -75,6 +75,12 @@ public class ShipMovement : MonoBehaviour
     protected virtual void Update()
     {
         ScreenWrap();
+        if (GameManager.instance.inMenu)
+        {
+            UpdateMotor(0);
+            return; 
+        }
+        UpdateMotor(Input.GetAxisRaw(isPlayer1 ? "Vertical" : "Vertical2"));
     }
 
     protected virtual void UpdateMotor(float y)

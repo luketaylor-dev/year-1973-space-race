@@ -499,6 +499,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2898823053490206395, guid: f88ae58653ff244169bea32e3d2242f0, type: 3}
   m_PrefabInstance: {fileID: 2898823053593658845}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &165081959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165081958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29c5be6a153ef4f13bd21f00323c3e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  isPlayer1: 1
 --- !u!1 &286252772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1919,6 +1933,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2898823053490206395, guid: f88ae58653ff244169bea32e3d2242f0, type: 3}
   m_PrefabInstance: {fileID: 1337746125}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1274210196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274210195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29c5be6a153ef4f13bd21f00323c3e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  isPlayer1: 0
 --- !u!1001 &1337746125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1974,7 +2002,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2898823053490206390, guid: f88ae58653ff244169bea32e3d2242f0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f88ae58653ff244169bea32e3d2242f0, type: 3}
 --- !u!1 &1409298644
 GameObject:
@@ -2924,7 +2953,7 @@ MonoBehaviour:
   slider: {fileID: 673375152}
   player1Win: {fileID: 859539254}
   player2Win: {fileID: 1976797443}
-  roundLength: 5
+  roundLength: 30
   inMenu: 1
 --- !u!1 &1976797441
 GameObject:
@@ -3289,5 +3318,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2898823053490206390, guid: f88ae58653ff244169bea32e3d2242f0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f88ae58653ff244169bea32e3d2242f0, type: 3}
