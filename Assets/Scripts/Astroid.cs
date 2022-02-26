@@ -77,6 +77,11 @@ public class Astroid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.instance.inPauseMenu)
+        {
+            rb.velocity = new Vector2(0, 0);
+            return;
+        }
         rb.velocity = new Vector2(1 * speed, 0);
         ScreenWrap();
     }

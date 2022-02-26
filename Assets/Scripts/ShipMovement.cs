@@ -75,7 +75,7 @@ public class ShipMovement : MonoBehaviour
     protected virtual void Update()
     {
         ScreenWrap();
-        if (GameManager.instance.inMenu)
+        if (GameManager.instance.inMenu || GameManager.instance.inPauseMenu)
         {
             UpdateMotor(0);
             return; 

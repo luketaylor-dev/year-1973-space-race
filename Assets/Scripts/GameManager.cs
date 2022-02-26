@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     public Canvas menuCanvas;
     public Canvas gameCanvas;
+    public Canvas pauseMenuCanvas;
     public Slider slider;
     public TextMeshProUGUI player1Win;
     public TextMeshProUGUI player2Win;
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
     public float roundLength = 30f;
 
     public bool inMenu = true;
+    public bool inPauseMenu = false;
 
     private int player1Score;
     private int player2Score;
@@ -55,6 +57,18 @@ public class GameManager : MonoBehaviour
         if (roundLength - time <= 0)
         {
             EndGame();
+        }
+
+        if (!inMenu)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape) && !inPauseMenu)
+            {
+                Pause();
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape) && inPauseMenu)
+            {
+                Resume();
+            }
         }
     }
 
@@ -144,6 +158,27 @@ public class GameManager : MonoBehaviour
         Debug.Log("Hard Click");
         ResetGame();
         SetupGame(75);
+    }
+
+    public void Pause()
+    {
+        inPauseMenu = true;
+        pauseMenuCanvas.enabled = true;
+
+    }
+
+    public void Resume()
+    {
+        pauseMenuCanvas.enabled = false;
+        inPauseMenu = false;
+    }
+
+    public void QuitToMenu()
+    {
+        ResetGame();
+        pauseMenuCanvas.enabled = false;
+        gameCanvas.enabled = false;
+        menuCanvas.enabled = true;
     }
 
     public void Quit()
