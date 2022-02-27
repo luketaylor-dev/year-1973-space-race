@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Transactions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,6 +24,9 @@ public class GameManager : MonoBehaviour
     
 
     public float roundLength = 30f;
+    public int easyAstroids = 25;
+    public int mediumAstroids = 50;
+    public int hardAstroids = 75;
 
     public bool inMenu = true;
     public bool inPauseMenu = false;
@@ -36,6 +35,8 @@ public class GameManager : MonoBehaviour
     private int player2Score;
 
     private float gameStart;
+
+    private float timer = 0;
     private void Awake()
     {
         instance = this;
@@ -52,12 +53,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (inMenu) return;
-        var time = Time.time - gameStart;
-        slider.value =  (roundLength - time) / roundLength;
-        if (roundLength - time <= 0)
-        {
-            EndGame();
-        }
+        
 
         if (!inMenu)
         {
@@ -69,6 +65,15 @@ public class GameManager : MonoBehaviour
             {
                 Resume();
             }
+        }
+
+        if (inPauseMenu) return;
+        timer += Time.deltaTime;
+        var time = timer - gameStart;
+        slider.value = (roundLength - time) / roundLength;
+        if (roundLength - time <= 0)
+        {
+            EndGame();
         }
     }
 
@@ -140,31 +145,26 @@ public class GameManager : MonoBehaviour
     
     public void Easy()
     {
-        Debug.Log("Easy Click");
         ResetGame();
-        SetupGame(25);
-
+        SetupGame(easyAstroids);
     }
 
     public void Medium()
     {
-        Debug.Log("Medium Click");
         ResetGame();
-        SetupGame(50);
+        SetupGame(mediumAstroids);
     }
 
     public void Hard()
     {       
-        Debug.Log("Hard Click");
         ResetGame();
-        SetupGame(75);
+        SetupGame(hardAstroids);
     }
 
     public void Pause()
     {
         inPauseMenu = true;
         pauseMenuCanvas.enabled = true;
-
     }
 
     public void Resume()
